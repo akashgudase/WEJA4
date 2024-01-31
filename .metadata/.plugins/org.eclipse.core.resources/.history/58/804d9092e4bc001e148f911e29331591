@@ -1,0 +1,15 @@
+package com.jspiders.designpatterns.main;
+
+import com.jspiders.designpatterns.creational.Beverage;
+
+public class FactoryMain {
+
+	public static void main(String[] args) {
+
+	}
+
+	private static Beverage factory() {
+
+	}
+
+}

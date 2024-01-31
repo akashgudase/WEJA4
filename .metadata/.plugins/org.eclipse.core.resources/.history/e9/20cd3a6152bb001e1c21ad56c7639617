@@ -1,0 +1,9 @@
+package com.jspiders.designpatterns.main;
+
+public class SingletonLazyMain {
+
+	public static void main(String[] args) {
+
+	}
+
+}

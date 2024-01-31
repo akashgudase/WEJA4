@@ -1,0 +1,13 @@
+package com.jspiders.designpatterns.main;
+
+import com.jspiders.designpatterns.creational.SingletonLazy;
+
+public class SingletonLazyMain {
+
+	public static void main(String[] args) {
+
+		SingletonLazy singletonLazy = new SingletonLazy();
+
+	}
+
+}

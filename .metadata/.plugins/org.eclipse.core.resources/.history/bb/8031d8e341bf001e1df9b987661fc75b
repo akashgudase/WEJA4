@@ -1,0 +1,17 @@
+package com.jspiders.designpatterns.structural;
+
+public class Adapter extends Employee implements Event {
+
+	@Override
+	public void womensDay() {
+		
+		
+		
+	}
+
+	@Override
+	public void mensDay() {
+		
+	}
+
+}

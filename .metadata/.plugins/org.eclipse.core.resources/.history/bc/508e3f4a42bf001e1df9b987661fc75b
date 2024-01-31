@@ -1,0 +1,11 @@
+package com.jspiders.designpatterns.structural;
+
+public class AdapterMain {
+	
+	public static void main(String[] args) {
+		
+		
+		
+	}
+
+}

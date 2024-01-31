@@ -1,0 +1,18 @@
+package com.jspiders.designpatterns.creational;
+
+public class ContactBuilder {
+	
+	private String firstName;
+	private String lastName;
+	private String dob;
+	private long mobile;
+	private long work;
+	private long home;
+	private int landline;
+	private String email;
+	private String website;
+	private String address;
+	
+	public void setFirstName
+
+}
