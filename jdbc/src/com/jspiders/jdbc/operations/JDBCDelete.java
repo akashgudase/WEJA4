@@ -2,33 +2,25 @@ package com.jspiders.jdbc.operations;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
-import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 
-public class JDBCSelect {
+public class JDBCDelete {
 
 	private static Connection connection;
 	private static Statement statement;
 	private static String query;
-	private static ResultSet resultSet;
 
 	public static void main(String[] args) {
 
 		try {
 			openConnection();
 			statement = connection.createStatement();
-			query = "SELECT * FROM user";
-			boolean res = statement.execute(query);
-			resultSet = statement.getResultSet();
-			while (resultSet.next()) {
-				System.out.println(resultSet.getInt(1));
-				System.out.println(resultSet.getString(2));
-				System.out.println(resultSet.getString(3));
-				System.out.println(resultSet.getString(4));
-			}
+			query = "DELETE FROM user WHERE id = 3";
+			int res = statement.executeUpdate(query);
+			System.out.println("User deleted");
 			System.out.println(res);
-		} catch (SQLException e) {
+		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
 			try {
