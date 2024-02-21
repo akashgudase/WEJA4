@@ -1,47 +1,50 @@
 package com.jspiders.hibernatejpa.dao;
 
+import java.util.List;
+
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.EntityTransaction;
 import javax.persistence.Persistence;
+import javax.persistence.Query;
 
 import com.jspiders.hibernatejpa.dto.StudentDTO;
 
-public class StudentDAO {
-
+public class StudentDAO6 {
+	
 	private static EntityManagerFactory entityManagerFactory;
 	private static EntityManager entityManager;
 	private static EntityTransaction entityTransaction;
 
 	public static void main(String[] args) {
 
-		StudentDTO studentDTO = new StudentDTO();
-		studentDTO.setId(6);
-		studentDTO.setName("Vijay");
-		studentDTO.setEmail("Vijay@gmail.com");
-		studentDTO.setMobile(9876543224l);
-		studentDTO.setAge(25);
-
 		openConnection();
 		entityTransaction.begin();
 
-		entityManager.persist(studentDTO);
+		List<StudentDTO> students = findAll();
+		for (StudentDTO student : students) {
+			System.out.println(student);
+		}
 
 		entityTransaction.commit();
 		closeConnection();
 
 	}
 
-	private static void openConnection() {
+	@SuppressWarnings("unchecked")
+	private static List<StudentDTO> findAll() {
+		Query query = entityManager.createQuery("SELECT student FROM StudentDTO student WHERE name LIKE '%jay'");
+		List<StudentDTO> students = query.getResultList();
+		return students;
+	}
 
+	private static void openConnection() {
 		entityManagerFactory = Persistence.createEntityManagerFactory("student");
 		entityManager = entityManagerFactory.createEntityManager();
 		entityTransaction = entityManager.getTransaction();
-
 	}
 
 	private static void closeConnection() {
-
 		if (entityManagerFactory != null) {
 			entityManagerFactory.close();
 		}
@@ -53,7 +56,7 @@ public class StudentDAO {
 				entityTransaction.rollback();
 			}
 		}
-
 	}
+
 
 }
