@@ -28,7 +28,7 @@ public class CompanyDTO {
 	@Column(nullable = false)
 	private String location;
 	@OneToMany
-	@Cascade(CascadeType.REMOVE)
+	@Cascade(CascadeType.ALL)
 	private List<EmployeeDTO> employees;
 
 }
