@@ -1,12 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="no"?>
 <qualifiedTypeNameHistroy>
-    <fullyQualifiedTypeName name="java.lang.NullPointerException"/>
-    <fullyQualifiedTypeName name="com.jspiders.designpatterns.main.ContactMain"/>
-    <fullyQualifiedTypeName name="com.jspiders.designpatterns.creational.Contact"/>
-    <fullyQualifiedTypeName name="com.jspiders.designpatterns.creational.ContactBuilder"/>
-    <fullyQualifiedTypeName name="com.jspiders.designpatterns.structural.Employee"/>
-    <fullyQualifiedTypeName name="com.jspiders.designpatterns.structural.Event"/>
-    <fullyQualifiedTypeName name="com.jspiders.designpatterns.structural.Adapter"/>
     <fullyQualifiedTypeName name="java.sql.Driver"/>
     <fullyQualifiedTypeName name="com.mysql.cj.jdbc.Driver"/>
     <fullyQualifiedTypeName name="java.sql.SQLException"/>
@@ -38,7 +31,6 @@
     <fullyQualifiedTypeName name="com.jspiders.onetomany.dto.EmployeeDTO"/>
     <fullyQualifiedTypeName name="com.jspiders.manytoone.dto.EmployeeDTO"/>
     <fullyQualifiedTypeName name="com.jspiders.manytoone.dto.CompanyDTO"/>
-    <fullyQualifiedTypeName name="javax.persistence.ManyToMany"/>
     <fullyQualifiedTypeName name="javax.persistence.EntityManagerFactory"/>
     <fullyQualifiedTypeName name="javax.persistence.EntityManager"/>
     <fullyQualifiedTypeName name="javax.persistence.EntityTransaction"/>
@@ -48,16 +40,24 @@
     <fullyQualifiedTypeName name="javax.persistence.OneToOne"/>
     <fullyQualifiedTypeName name="com.jspiders.onetoonebi.dto.PersonDTO"/>
     <fullyQualifiedTypeName name="com.jspiders.onetoonebi.dto.AadharDTO"/>
-    <fullyQualifiedTypeName name="java.util.List"/>
     <fullyQualifiedTypeName name="javax.persistence.OneToMany"/>
+    <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
+    <fullyQualifiedTypeName name="com.jspiders.onetomanybi.dto.CompanyDTO"/>
+    <fullyQualifiedTypeName name="com.jspiders.onetomanybi.dto.EmployeeDTO"/>
+    <fullyQualifiedTypeName name="javax.persistence.Column"/>
     <fullyQualifiedTypeName name="javax.persistence.Entity"/>
     <fullyQualifiedTypeName name="lombok.Data"/>
     <fullyQualifiedTypeName name="javax.persistence.Table"/>
     <fullyQualifiedTypeName name="javax.persistence.Id"/>
     <fullyQualifiedTypeName name="javax.persistence.GeneratedValue"/>
-    <fullyQualifiedTypeName name="javax.persistence.Column"/>
-    <fullyQualifiedTypeName name="javax.persistence.ManyToOne"/>
-    <fullyQualifiedTypeName name="com.jspiders.onetomanybi.dto.CompanyDTO"/>
-    <fullyQualifiedTypeName name="com.jspiders.onetomanybi.dto.EmployeeDTO"/>
+    <fullyQualifiedTypeName name="java.util.List"/>
+    <fullyQualifiedTypeName name="javax.persistence.ManyToMany"/>
+    <fullyQualifiedTypeName name="com.jspiders.manytomanybi.dto.StudentDTO"/>
+    <fullyQualifiedTypeName name="com.jspiders.manytomanybi.dto.CourseDTO"/>
+    <fullyQualifiedTypeName name="java.lang.ArrayIndexOutOfBoundsException"/>
     <fullyQualifiedTypeName name="java.util.Arrays"/>
+    <fullyQualifiedTypeName name="javax.servlet.GenericServlet"/>
+    <fullyQualifiedTypeName name="javax.servlet.http.HttpServlet"/>
+    <fullyQualifiedTypeName name="java.lang.Integer"/>
+    <fullyQualifiedTypeName name="javax.servlet.annotation.WebServlet"/>
 </qualifiedTypeNameHistroy>
