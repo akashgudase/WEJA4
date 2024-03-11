@@ -39,8 +39,7 @@
 		<%
 		if (message != null) {
 		%>
-		<h4><%=message%>
-		</h4>
+		<h4><%=message%></h4>
 		<%
 		}
 		%>

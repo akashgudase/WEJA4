@@ -10,6 +10,7 @@
 </head>
 <body>
 	<%
+	@SuppressWarnings("unchecked")
 	List<Car> cars = (List<Car>) request.getAttribute("cars");
 	if (cars != null && cars.size() > 0) {
 	%>
@@ -44,6 +45,5 @@
 	<%
 	}
 	%>
-
 </body>
 </html>

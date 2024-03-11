@@ -55,7 +55,6 @@ public class CarJDBC {
 			e.printStackTrace();
 		}
 		return res;
-
 	}
 
 	public static List<Car> searchAllCars() {
@@ -78,7 +77,21 @@ public class CarJDBC {
 			e.printStackTrace();
 		}
 		return cars;
+	}
 
+	public static int deleteCar(int id) {
+		int res = 0;
+		try {
+			openConnection();
+			query = "DELETE FROM car WHERE id = ?";
+			preparedStatement = connection.prepareStatement(query);
+			preparedStatement.setInt(1, id);
+			res = preparedStatement.executeUpdate();
+			closeConnection();
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+		return res;
 	}
 
 }
