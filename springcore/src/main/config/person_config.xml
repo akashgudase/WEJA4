@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	<bean class="com.jspiders.springcore.entity.Person" name="person">
+		<property name="id" value="1" />
+		<property name="name" value="Ram" />
+		<property name="email" value="ram@gamil.com" />
+		<property name="mobile" value="9876543210" />
+		<property name="aadhar" ref="aadhar" />
+	</bean>
+
+	<bean class="com.jspiders.springcore.entity.Aadhar" name="aadhar">
+		<property name="id" value="1" />
+		<property name="aadharNumber" value="123456789876" />
+	</bean>
+
+</beans>

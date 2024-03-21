@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans
+            http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context
+            http://www.springframework.org/schema/context/spring-context-3.0.xsd">
+	<bean class="com.jspiders.springcore.entity.User" name="user1">
+		<property name="id" value="1" />
+		<property name="userName" value="akash" />
+		<property name="email" value="akash@gmail.com" />
+		<property name="password" value="Akash@1234" />
+	</bean>
+	<bean class="com.jspiders.springcore.entity.User" name="user2">
+		<property name="id" value="2" />
+		<property name="userName" value="Pranali" />
+		<property name="email" value="pranali@gmail.com" />
+		<property name="password" value="Pranali@1234" />
+	</bean>
+	<bean class="com.jspiders.springcore.entity.User" name="user3">
+		<constructor-arg name="id" value="3" />
+		<constructor-arg name="userName" value="Pratik" />
+		<constructor-arg name="email" value="pratik@gmail.com" />
+		<constructor-arg name="password" value="Pratik@1234" />
+	</bean>
+</beans>
