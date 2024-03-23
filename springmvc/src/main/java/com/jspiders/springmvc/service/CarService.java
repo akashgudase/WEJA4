@@ -1,5 +1,7 @@
 package com.jspiders.springmvc.service;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -18,6 +20,15 @@ public class CarService {
 		carDTO.setBrand(brand);
 		carDTO.setPrice(price);
 		carDAO.addCar(carDTO);
+	}
+
+	public List<CarDTO> findAllCars() {
+		List<CarDTO> cars = carDAO.findAllCars();
+		if (cars != null && cars.size() > 0) {
+			return cars;
+		} else {
+			return null;
+		}
 	}
 
 }
