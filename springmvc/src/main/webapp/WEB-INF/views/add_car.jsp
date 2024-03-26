@@ -22,7 +22,7 @@
 
 #box {
 	border: 3px solid;
-	height: 340px;
+	height: 365px;
 	width: 440px;
 	background-color: gray;
 	margin-left: 525px;
@@ -49,6 +49,10 @@
 #message {
 	font-size: 25px;
 }
+
+a {
+	text-decoration: none;
+}
 </style>
 </head>
 <body>
@@ -65,7 +69,6 @@
 					<td class="label">Brand</td>
 					<td><input class="input" type="text" name="brand"
 						required="required"></td>
-
 				</tr>
 				<tr>
 					<td class="label">Price</td>
@@ -75,6 +78,9 @@
 			</table>
 			<input id="button" type="submit" value="ADD">
 		</form>
+		<h3>
+			Do you want to go to <a href="home">Home Page</a> ?
+		</h3>
 	</div>
 	<%
 	String message = (String) request.getAttribute("message");

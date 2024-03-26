@@ -36,7 +36,7 @@
 }
 
 a {
-	text-decoration: none
+	text-decoration: none;
 }
 </style>
 </head>

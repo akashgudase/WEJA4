@@ -1,5 +1,7 @@
 package com.jspiders.springmvc.controller;
 
+import javax.servlet.http.HttpSession;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
@@ -36,14 +38,23 @@ public class UserController {
 
 	@RequestMapping(path = "/check_user", method = RequestMethod.POST)
 	public String checkUser(@RequestParam(name = "email") String email,
-			@RequestParam(name = "password") String password, ModelMap modelMap) {
+			@RequestParam(name = "password") String password, ModelMap modelMap, HttpSession httpSession) {
 		UserDTO signedInUser = userService.checkUser(email, password);
 		if (signedInUser != null) {
+			httpSession.setAttribute("user", signedInUser);
+			httpSession.setMaxInactiveInterval(1200);
 			return "home";
 		} else {
 			modelMap.addAttribute("message", "Inavlid Email or Password");
 			return "sign_in";
 		}
+	}
+
+	@RequestMapping(path = "/sign_out", method = RequestMethod.GET)
+	public String signOut(ModelMap modelMap, HttpSession httpSession) {
+		modelMap.addAttribute("message", "Signed out");
+		httpSession.invalidate();
+		return "sign_in";
 	}
 
 }

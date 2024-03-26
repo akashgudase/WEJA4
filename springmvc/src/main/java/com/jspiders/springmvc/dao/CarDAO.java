@@ -39,12 +39,13 @@ public class CarDAO {
 		}
 	}
 
-	public void addCar(CarDTO carDTO) {
+	public CarDTO addCar(CarDTO carDTO) {
 		openConnection();
 		entityTransaction.begin();
 		entityManager.persist(carDTO);
 		entityTransaction.commit();
 		closeConnection();
+		return carDTO;
 	}
 
 	public List<CarDTO> findAllCars() {

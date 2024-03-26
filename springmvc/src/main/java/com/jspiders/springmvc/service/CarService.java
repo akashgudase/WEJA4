@@ -14,12 +14,12 @@ public class CarService {
 	@Autowired
 	private CarDAO carDAO;
 
-	public void addCar(String name, String brand, double price) {
+	public CarDTO addCar(String name, String brand, double price) {
 		CarDTO carDTO = new CarDTO();
 		carDTO.setName(name);
 		carDTO.setBrand(brand);
 		carDTO.setPrice(price);
-		carDAO.addCar(carDTO);
+		return carDAO.addCar(carDTO);
 	}
 
 	public List<CarDTO> findAllCars() {
