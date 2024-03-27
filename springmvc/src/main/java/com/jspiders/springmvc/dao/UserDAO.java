@@ -10,6 +10,7 @@ import javax.persistence.Query;
 
 import org.springframework.stereotype.Component;
 
+import com.jspiders.springmvc.dto.CarDTO;
 import com.jspiders.springmvc.dto.UserDTO;
 
 @Component
@@ -54,6 +55,19 @@ public class UserDAO {
 		List<UserDTO> users = query.getResultList();
 		closeConnection();
 		return users;
+	}
+
+	public void updateUser(int userId, int carId) {
+		openConnection();
+		UserDTO user = entityManager.find(UserDTO.class, userId);
+		CarDTO car = entityManager.find(CarDTO.class, carId);
+		List<CarDTO> cars = user.getCars();
+		cars.add(car);
+		user.setCars(cars);
+		entityTransaction.begin();
+		entityManager.persist(user);
+		entityTransaction.commit();
+		closeConnection();
 	}
 
 }

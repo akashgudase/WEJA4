@@ -11,6 +11,7 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Component;
 
 import com.jspiders.springmvc.dto.CarDTO;
+import com.jspiders.springmvc.dto.UserDTO;
 
 @Component
 public class CarDAO {
@@ -53,6 +54,14 @@ public class CarDAO {
 		Query query = entityManager.createQuery("SELECT car FROM CarDTO car");
 		@SuppressWarnings("unchecked")
 		List<CarDTO> cars = query.getResultList();
+		closeConnection();
+		return cars;
+	}
+
+	public List<CarDTO> findAllCarsByUser(int id) {
+		openConnection();
+		UserDTO user = entityManager.find(UserDTO.class, id);
+		List<CarDTO> cars = user.getCars();
 		closeConnection();
 		return cars;
 	}

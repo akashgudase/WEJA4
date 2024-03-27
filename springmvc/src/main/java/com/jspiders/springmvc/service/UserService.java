@@ -36,4 +36,8 @@ public class UserService {
 		return signedInUser;
 	}
 
+	public void updateUser(UserDTO signedInUser, CarDTO addedCar) {
+		userDAO.updateUser(signedInUser.getId(), addedCar.getId());
+	}
+
 }

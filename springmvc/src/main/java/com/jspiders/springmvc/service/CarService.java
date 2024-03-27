@@ -7,6 +7,7 @@ import org.springframework.stereotype.Component;
 
 import com.jspiders.springmvc.dao.CarDAO;
 import com.jspiders.springmvc.dto.CarDTO;
+import com.jspiders.springmvc.dto.UserDTO;
 
 @Component
 public class CarService {
@@ -24,6 +25,15 @@ public class CarService {
 
 	public List<CarDTO> findAllCars() {
 		List<CarDTO> cars = carDAO.findAllCars();
+		if (cars != null && cars.size() > 0) {
+			return cars;
+		} else {
+			return null;
+		}
+	}
+
+	public List<CarDTO> findAllCarsByUser(UserDTO signedInUser) {
+		List<CarDTO> cars = carDAO.findAllCarsByUser(signedInUser.getId());
 		if (cars != null && cars.size() > 0) {
 			return cars;
 		} else {
