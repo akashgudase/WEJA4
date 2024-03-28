@@ -90,4 +90,37 @@ public class CarController {
 		}
 	}
 
+	@RequestMapping(path = "/delete_car", method = RequestMethod.POST)
+	public String deleteCar(@RequestParam(name = "id") int id, ModelMap modelMap, HttpSession httpSession) {
+		UserDTO signedInUser = (UserDTO) httpSession.getAttribute("user");
+		carService.deleteCar(signedInUser, id);
+		List<CarDTO> cars = carService.findAllCarsByUser(signedInUser);
+		if (cars != null) {
+			modelMap.addAttribute("cars", cars);
+			modelMap.addAttribute("message", "Car details deleted");
+		} else {
+			modelMap.addAttribute("message", "Cars not available");
+		}
+		return "my_cars";
+	}
+
+	@RequestMapping(path = "/update_car", method = RequestMethod.POST)
+	public String updateCar(@RequestParam(name = "id") int id, @RequestParam(name = "name") String name,
+			@RequestParam(name = "brand") String brand, @RequestParam(name = "price") double price, ModelMap modelMap,
+			HttpSession httpSession) {
+		UserDTO signedInUser = (UserDTO) httpSession.getAttribute("user");
+		carService.updateCar(id, name, brand, price);
+		List<CarDTO> cars = carService.findAllCarsByUser(signedInUser);
+		modelMap.addAttribute("cars", cars);
+		modelMap.addAttribute("message", "Car details updated");
+		return "my_cars";
+	}
+
+	@RequestMapping(path = "/edit_car", method = RequestMethod.POST)
+	public String getEditPage(@RequestParam(name = "id") int id, ModelMap modelMap) {
+		CarDTO car = carService.findCarById(id);
+		modelMap.addAttribute("car", car);
+		return "edit_car";
+	}
+
 }

@@ -19,13 +19,15 @@
 	font-weight: bold;
 	font-size: 25px;
 	border: 1px solid;
+	text-align: center;
 }
 
 .data {
 	width: 150px;
 	font-size: 20px;
-	padding: 10px;
+	padding: 15px;
 	border: 1px solid;
+	text-align: center;
 }
 
 #table {
@@ -47,9 +49,6 @@ a {
 	%>
 	<div align="center">
 		<h3 id="message"><%=message%></h3>
-		<h3>
-			Do you want to go to <a href="home">Home Page</a> ?
-		</h3>
 	</div>
 	<%
 	}
@@ -78,12 +77,14 @@ a {
 			}
 			%>
 		</table>
-		<h3>
-			Do you want to go to <a href="home">Home Page</a> ?
-		</h3>
 	</div>
 	<%
 	}
 	%>
+	<div align="center">
+		<h3>
+			Do you want to go to <a href="home">Home Page</a> ?
+		</h3>
+	</div>
 </body>
 </html>

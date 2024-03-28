@@ -66,4 +66,46 @@ public class CarDAO {
 		return cars;
 	}
 
+	public void deleteCar(int userId, int carId) {
+		openConnection();
+		UserDTO user = entityManager.find(UserDTO.class, userId);
+		List<CarDTO> cars = user.getCars();
+		CarDTO carToBeDeleted = null;
+		for (CarDTO car : cars) {
+			if (car.getId() == carId) {
+				carToBeDeleted = car;
+				break;
+			}
+		}
+		cars.remove(carToBeDeleted);
+		user.setCars(cars);
+		entityTransaction.begin();
+		entityManager.persist(user);
+		entityTransaction.commit();
+		CarDTO car = entityManager.find(CarDTO.class, carId);
+		entityTransaction.begin();
+		entityManager.remove(car);
+		entityTransaction.commit();
+		closeConnection();
+	}
+
+	public void updateCar(CarDTO car) {
+		openConnection();
+		CarDTO carToBeUpdated = entityManager.find(CarDTO.class, car.getId());
+		carToBeUpdated.setName(car.getName());
+		carToBeUpdated.setBrand(car.getBrand());
+		carToBeUpdated.setPrice(car.getPrice());
+		entityTransaction.begin();
+		entityManager.persist(carToBeUpdated);
+		entityTransaction.commit();
+		closeConnection();
+	}
+
+	public CarDTO findCarById(int id) {
+		openConnection();
+		CarDTO car = entityManager.find(CarDTO.class, id);
+		closeConnection();
+		return car;
+	}
+
 }

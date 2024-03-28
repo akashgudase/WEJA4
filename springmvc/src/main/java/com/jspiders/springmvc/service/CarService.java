@@ -41,4 +41,20 @@ public class CarService {
 		}
 	}
 
+	public void deleteCar(UserDTO signedInUser, int carId) {
+		carDAO.deleteCar(signedInUser.getId(), carId);
+	}
+
+	public void updateCar(int id, String name, String brand, double price) {
+		CarDTO car = new CarDTO();
+		car.setId(id);
+		car.setName(name);
+		car.setBrand(brand);
+		car.setPrice(price);
+		carDAO.updateCar(car);
+	}
+
+	public CarDTO findCarById(int id) {
+		return carDAO.findCarById(id);
+	}
 }
