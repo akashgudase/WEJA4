@@ -40,12 +40,13 @@ public class UserDAO {
 		}
 	}
 
-	public void addUser(UserDTO userDTO) {
+	public UserDTO addUser(UserDTO userDTO) {
 		openConnection();
 		entityTransaction.begin();
 		entityManager.persist(userDTO);
 		entityTransaction.commit();
 		closeConnection();
+		return userDTO;
 	}
 
 	public List<UserDTO> findAllUsers() {
@@ -66,6 +67,15 @@ public class UserDAO {
 		user.setCars(cars);
 		entityTransaction.begin();
 		entityManager.persist(user);
+		entityTransaction.commit();
+		closeConnection();
+	}
+
+	public void deleteUser(int id) {
+		openConnection();
+		UserDTO user = entityManager.find(UserDTO.class, id);
+		entityTransaction.begin();
+		entityManager.remove(user);
 		entityTransaction.commit();
 		closeConnection();
 	}

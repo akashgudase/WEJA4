@@ -108,4 +108,14 @@ public class CarDAO {
 		return car;
 	}
 
+	public List<CarDTO> findAllCarsByPrice(double low, double high) {
+		openConnection();
+		Query query = entityManager.createQuery("SELECT car FROM CarDTO car WHERE price BETWEEN ?1 AND ?2 ");
+		query.setParameter(1, low);
+		query.setParameter(2, high);
+		@SuppressWarnings("unchecked")
+		List<CarDTO> cars = query.getResultList();
+		return cars;
+	}
+
 }

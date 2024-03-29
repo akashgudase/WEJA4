@@ -40,9 +40,49 @@
 a {
 	text-decoration: none
 }
+
+#box {
+	background-color: gray;
+	font-size: 20px;
+	font-weight: bold;
+	height: 50px;
+	border: 2px solid;
+}
+
+form {
+	margin-left: 780px;
+	margin-top: 7px;
+}
+
+#button {
+	height: 35px;
+	width: 100px;
+	background-color: black;
+	color: gray;
+	border-radius: 5px;
+	font-size: 15px;
+	text-decoration: none;
+}
+
+input {
+	height: 28px;
+	width: 200px;
+	background-color: gray;
+	border: 1px solid;
+	background-color: gray;
+	background-color: gray;
+}
 </style>
 </head>
 <body>
+	<div id="box">
+		<form action="search" method="post">
+			<label>Low price</label> <input type="text" name="low"
+				required="required"> <label>High price</label> <input
+				type="text" name="high" required="required"> <input
+				id="button" type="submit" value="SEARCH">
+		</form>
+	</div>
 	<%
 	String message = (String) request.getAttribute("message");
 	if (message != null) {

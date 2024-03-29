@@ -16,12 +16,25 @@ public class UserService {
 	@Autowired
 	private UserDAO userDAO;
 
-	public void addUser(String email, String password) {
-		UserDTO userDTO = new UserDTO();
-		userDTO.setEmail(email);
-		userDTO.setPassword(password);
-		userDTO.setCars(new ArrayList<CarDTO>());
-		userDAO.addUser(userDTO);
+	public UserDTO addUser(String email, String password) {
+		UserDTO addedUser = null;
+		boolean flag = true;
+		List<UserDTO> users = userDAO.findAllUsers();
+		for (UserDTO user : users) {
+			if (user.getEmail().equals(email)) {
+				flag = false;
+				break;
+			}
+		}
+		if (flag) {
+			UserDTO userDTO = new UserDTO();
+			userDTO.setEmail(email);
+			userDTO.setPassword(password);
+			userDTO.setCars(new ArrayList<CarDTO>());
+			addedUser = userDAO.addUser(userDTO);
+		}
+		return addedUser;
+
 	}
 
 	public UserDTO checkUser(String email, String password) {
@@ -38,6 +51,10 @@ public class UserService {
 
 	public void updateUser(UserDTO signedInUser, CarDTO addedCar) {
 		userDAO.updateUser(signedInUser.getId(), addedCar.getId());
+	}
+
+	public void deleteUser(UserDTO signedInUser) {
+		userDAO.deleteUser(signedInUser.getId());
 	}
 
 }

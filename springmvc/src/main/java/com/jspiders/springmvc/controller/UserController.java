@@ -26,9 +26,14 @@ public class UserController {
 	@RequestMapping(path = "/add_user", method = RequestMethod.POST)
 	public String addUser(@RequestParam(name = "email") String email, @RequestParam(name = "password") String password,
 			ModelMap modelMap) {
-		userService.addUser(email, password);
-		modelMap.addAttribute("message", "Signed up");
-		return "sign_in";
+		UserDTO addedUser = userService.addUser(email, password);
+		if (addedUser != null) {
+			modelMap.addAttribute("message", "Signed up");
+			return "sign_in";
+		} else {
+			modelMap.addAttribute("message", "Email already exists");
+			return "sign_up";
+		}
 	}
 
 	@RequestMapping(path = "/sign_in", method = RequestMethod.GET)
@@ -54,6 +59,14 @@ public class UserController {
 	public String signOut(ModelMap modelMap, HttpSession httpSession) {
 		modelMap.addAttribute("message", "Signed out");
 		httpSession.invalidate();
+		return "sign_in";
+	}
+
+	@RequestMapping(path = "/delete_user", method = RequestMethod.GET)
+	public String deleteUser(ModelMap modelMap, HttpSession httpSession) {
+		UserDTO signedInUser = (UserDTO) httpSession.getAttribute("user");
+		userService.deleteUser(signedInUser);
+		modelMap.addAttribute("message", "User deleted");
 		return "sign_in";
 	}
 

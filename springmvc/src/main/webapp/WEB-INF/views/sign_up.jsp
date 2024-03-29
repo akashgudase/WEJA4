@@ -73,5 +73,15 @@ a {
 			Do you want to <a href="sign_in">Sign in</a> ?
 		</h3>
 	</div>
+	<%
+	String message = (String) request.getAttribute("message");
+	if (message != null) {
+	%>
+	<div align="center">
+		<h3 id="message"><%=message%></h3>
+	</div>
+	<%
+	}
+	%>
 </body>
 </html>

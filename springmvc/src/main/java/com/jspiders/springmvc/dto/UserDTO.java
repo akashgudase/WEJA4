@@ -2,6 +2,7 @@ package com.jspiders.springmvc.dto;
 
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.FetchType;
@@ -25,7 +26,7 @@ public class UserDTO {
 	private String email;
 	@Column(nullable = false)
 	private String password;
-	@OneToMany(fetch = FetchType.EAGER)
+	@OneToMany(fetch = FetchType.EAGER, cascade = CascadeType.REMOVE)
 	private List<CarDTO> cars;
 
 }

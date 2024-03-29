@@ -25,9 +25,9 @@ a {
 }
 
 nav {
-	width: 600px;
+	width: 750px;
 	margin-top: 15px;
-	margin-left: 800px;
+	margin-left: 700px;
 	margin-top: 15px;
 }
 </style>
@@ -36,7 +36,8 @@ nav {
 	<div id="box" align="center">
 		<nav>
 			<a href="add_page">ADD</a> <a href="cars">All CARS</a> <a
-				href="my_cars">MY CARS</a> <a href="sign_out">SIGN OUT</a>
+				href="my_cars">MY CARS</a> <a href="sign_out">SIGN OUT</a> <a
+				href="delete_user">DELETE ACCOUNT</a>
 		</nav>
 	</div>
 </body>

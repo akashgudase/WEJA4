@@ -123,4 +123,16 @@ public class CarController {
 		return "edit_car";
 	}
 
+	@RequestMapping(path = "/search", method = RequestMethod.POST)
+	public String findAllCarsByPrice(@RequestParam(name = "low") double low, @RequestParam(name = "high") double high,
+			ModelMap modelMap) {
+		List<CarDTO> cars = carService.findAllCarsByPrice(low, high);
+		if (cars != null) {
+			modelMap.addAttribute("cars", cars);
+		} else {
+			modelMap.addAttribute("message", "Cars not available");
+		}
+		return "cars";
+	}
+
 }

@@ -57,4 +57,13 @@ public class CarService {
 	public CarDTO findCarById(int id) {
 		return carDAO.findCarById(id);
 	}
+
+	public List<CarDTO> findAllCarsByPrice(double low, double high) {
+		List<CarDTO> cars = carDAO.findAllCarsByPrice(low, high);
+		if (cars != null && cars.size() > 0) {
+			return cars;
+		} else {
+			return null;
+		}
+	}
 }
