@@ -51,8 +51,9 @@ public class CarController {
 	}
 
 	@DeleteMapping(path = "/car")
-	public ResponseEntity<ResponseStructure<Car>> deleteCar(@RequestParam(name = "id") int id) {
-		Car deletedCar = carService.deleteCar(id);
+	public ResponseEntity<ResponseStructure<Car>> deleteCar(@RequestParam(name = "carId") int carId,
+			@RequestParam(name = "userId") int userId) {
+		Car deletedCar = carService.deleteCar(carId, userId);
 		ResponseStructure<Car> responseStructure = new ResponseStructure<>();
 		if (deletedCar != null) {
 			responseStructure.setMessage("Car deleted");

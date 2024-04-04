@@ -11,6 +11,7 @@ import javax.persistence.Query;
 import org.springframework.stereotype.Repository;
 
 import com.jspiders.springrest.pojo.Car;
+import com.jspiders.springrest.pojo.User;
 
 @Repository
 public class CarRepository {
@@ -57,16 +58,30 @@ public class CarRepository {
 		return cars;
 	}
 
-	public Car deleteCar(int id) {
+	public Car deleteCar(int carId, int userId) {
 		openConnection();
-		Car carToBeDeleted = entityManager.find(Car.class, id);
+		User user = entityManager.find(User.class, userId);
+		List<Car> cars = user.getCars();
+		Car carToBeDeleted = null;
+		for (Car car : cars) {
+			if (car.getId() == carId) {
+				carToBeDeleted = car;
+				break;
+			}
+		}
+		cars.remove(carToBeDeleted);
+		user.setCars(cars);
 		entityTransaction.begin();
-		if (carToBeDeleted != null) {
-			entityManager.remove(carToBeDeleted);
+		entityManager.persist(user);
+		entityTransaction.commit();
+		Car car = entityManager.find(Car.class, carId);
+		entityTransaction.begin();
+		if (car != null) {
+			entityManager.remove(car);
 		}
 		entityTransaction.commit();
 		closeConnection();
-		return carToBeDeleted;
+		return car;
 	}
 
 	public Car updateCar(Car car) {

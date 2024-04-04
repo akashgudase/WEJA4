@@ -27,8 +27,8 @@ public class CarService {
 		}
 	}
 
-	public Car deleteCar(int id) {
-		return carRepository.deleteCar(id);
+	public Car deleteCar(int carId, int userId) {
+		return carRepository.deleteCar(carId, userId);
 	}
 
 	public Car updateCar(Car car) {
