@@ -11,6 +11,10 @@ import lombok.Data;
 @Scope(value = "prototype")
 @Data
 public class Person {
+	
+	{
+		System.out.println("Person");
+	}
 
 	@Value("1")
 	private int id;
